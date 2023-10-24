@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 
 <TilePane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" style="-fx-background-color: Blue; -fx-alignment: center; -fx-hgap: 5px; -fx-vgap: 5px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.tictactoe.HelloController">
-    <Button minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
-    <Button minHeight="100.0" minWidth="100.0" />
+    <Button fx:id="b1" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b2" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b3" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b4" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b5" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b6" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b7" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b8" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
+    <Button fx:id="b9" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
 </TilePane>
