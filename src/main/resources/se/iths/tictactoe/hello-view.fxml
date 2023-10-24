@@ -3,8 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TilePane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" style="-fx-background-color: Blue; -fx-alignment: center; -fx-hgap: 5px; -fx-vgap: 5px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-    <Button minHeight="100.0" minWidth="100.0" />
+<TilePane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" style="-fx-background-color: Blue; -fx-alignment: center; -fx-hgap: 5px; -fx-vgap: 5px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.tictactoe.HelloController">
+    <Button minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
     <Button minHeight="100.0" minWidth="100.0" />
     <Button minHeight="100.0" minWidth="100.0" />
     <Button minHeight="100.0" minWidth="100.0" />
