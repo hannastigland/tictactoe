@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Changed GUI&#10;Add onMouseClicked">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" afterDir="false" />
@@ -88,7 +80,7 @@
       <workItem from="1698168298528" duration="247000" />
       <workItem from="1698219144770" duration="2107000" />
       <workItem from="1698233712648" duration="742000" />
-      <workItem from="1698234477675" duration="2694000" />
+      <workItem from="1698234477675" duration="5544000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -118,7 +110,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1698235441341</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Changed GUI&#10;Add onMouseClicked">
+      <option name="closed" value="true" />
+      <created>1698240252271</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1698240252271</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,27 +1,34 @@
 package se.iths.tictactoe;
 
+import javafx.beans.binding.BooleanExpression;
+import javafx.beans.property.*;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class Model {
-    Button b1;
-    Button b2;
-    Button b3;
-    Button b4;
-    Button b5;
-    Button b6;
-    Button b7;
-    Button b8;
-    Button b9;
+    private int [][] arr = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
+    private StringProperty nameOfWinner = new SimpleStringProperty();
+    private BooleanProperty gameIsOver = new SimpleBooleanProperty();
+    private IntegerProperty yourScore = new SimpleIntegerProperty();
+    public void buttonClicked(MouseEvent event) {
 
-    public Model() {
-        b1 = new Button();
-        b2 = new Button();
-        b3 = new Button();
-        b4 = new Button();
-        b5 = new Button();
-        b6 = new Button();
-        b7 = new Button();
-        b8 = new Button();
-        b9 = new Button();
+    }
+    public BooleanProperty gameIsOverProperty() { //namnbyte
+        return gameIsOver;
+    }
+    public boolean isGameIsOver() { //namnbyte
+        return gameIsOver.get();
+    }
+    public void setGameIsOver(boolean gameIsOver) { //namnbyte
+        this.gameIsOver.set(gameIsOver);
+    }
+
+    public StringProperty nameOfWinnerProperty() {
+        return nameOfWinner;
+    }
+
+    public IntegerProperty yourScoreProperty() {
+        return yourScore;
     }
 }

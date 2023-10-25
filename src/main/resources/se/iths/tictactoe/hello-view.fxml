@@ -53,7 +53,7 @@
    </top>
    <right>
        <VBox prefHeight="310.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-           <Label fx:id="whoIsWinner" prefHeight="75.0" prefWidth="150.0" text="Winner:"/>
+           <Label fx:id="nameOfWinner" prefHeight="75.0" prefWidth="150.0" text="Winner:"/>
            <Label fx:id="yourScore" prefHeight="75.0" prefWidth="150.0" text="Your score:"/>
            <Button fx:id="resetButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
                    onMouseClicked="#resetButtonClicked" text="Reset score" textAlignment="CENTER"/>
