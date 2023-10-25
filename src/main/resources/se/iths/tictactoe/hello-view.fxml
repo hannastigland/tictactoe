@@ -13,7 +13,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <center>
-       <GridPane prefHeight="138.0" prefWidth="144.0" BorderPane.alignment="CENTER">
+       <GridPane fx:id="gridPane" prefHeight="138.0" prefWidth="144.0" BorderPane.alignment="CENTER">
            <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0"/>
                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0"/>
@@ -25,23 +25,23 @@
                <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
            </rowConstraints>
            <Button fx:id="b1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button"/>
+                   mnemonicParsing="false" text="Button" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.rowIndex="1"/>
+                   mnemonicParsing="false" text="Button" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.rowIndex="2"/>
+                   mnemonicParsing="false" text="Button" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
        </GridPane>
    </center>
    <top>
@@ -55,8 +55,8 @@
        <VBox prefHeight="310.0" prefWidth="165.0" BorderPane.alignment="CENTER">
            <Label fx:id="whoIsWinner" prefHeight="75.0" prefWidth="150.0" text="Winner:"/>
            <Label fx:id="yourScore" prefHeight="75.0" prefWidth="150.0" text="Your score:"/>
-           <Button fx:id="resetScoreButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                   text="Reset score" textAlignment="CENTER"/>
+           <Button fx:id="resetButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                   onMouseClicked="#resetButtonClicked" text="Reset score" textAlignment="CENTER"/>
        </VBox>
    </right>
 </BorderPane>

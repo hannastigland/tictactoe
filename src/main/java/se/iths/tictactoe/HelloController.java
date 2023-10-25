@@ -1,5 +1,6 @@
 package se.iths.tictactoe;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,8 +12,10 @@ public class HelloController {
 
     @FXML
     public Label yourScore;
-    public Label welcomeText;
-    public TextField textField;
+    @FXML
+    public Label whoIsWinner;
+    @FXML
+    public Button resetButton;
     @FXML
     public TilePane pane;
     @FXML
@@ -33,16 +36,14 @@ public class HelloController {
     public Button b8;
     @FXML
     public Button b9;
-    @FXML
-    public Label whoIsWinner;
-    @FXML
-    public Button resetScoreButton;
 
-    @FXML
     private Model model = new Model();
     public Model getModel() {
         return model;
     }
     public void buttonClicked(MouseEvent mouseEvent) {
+    }
+
+    public void resetButtonClicked(MouseEvent mouseEvent) {
     }
 }
