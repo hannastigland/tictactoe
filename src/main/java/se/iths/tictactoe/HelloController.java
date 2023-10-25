@@ -33,6 +33,10 @@ public class HelloController {
     public Button b8;
     @FXML
     public Button b9;
+    @FXML
+    public Label whoIsWinner;
+    @FXML
+    public Button resetScoreButton;
 
     @FXML
     private Model model = new Model();

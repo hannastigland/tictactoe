@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<TilePane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" style="-fx-background-color: Blue; -fx-alignment: center; -fx-hgap: 5px; -fx-vgap: 5px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.tictactoe.HelloController">
-    <Button fx:id="b1" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b2" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b3" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b4" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b5" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b6" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b7" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b8" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-    <Button fx:id="b9" minHeight="100.0" minWidth="100.0" onMouseClicked="#buttonClicked"/>
-</TilePane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="se.iths.tictactoe.HelloController">
+
+    <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <center>
+       <GridPane prefHeight="138.0" prefWidth="144.0" BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0"/>
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
+           </rowConstraints>
+           <Button fx:id="b1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button"/>
+           <Button fx:id="b2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1"/>
+           <Button fx:id="b3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2"/>
+           <Button fx:id="b4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.rowIndex="1"/>
+           <Button fx:id="b5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+           <Button fx:id="b6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+           <Button fx:id="b7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.rowIndex="2"/>
+           <Button fx:id="b8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+           <Button fx:id="b9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+       </GridPane>
+   </center>
+   <top>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: Pink;" text="Tic Tac Toe" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <right>
+       <VBox prefHeight="310.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+           <Label fx:id="whoIsWinner" prefHeight="75.0" prefWidth="150.0" text="Winner:"/>
+           <Label fx:id="yourScore" prefHeight="75.0" prefWidth="150.0" text="Your score:"/>
+           <Button fx:id="resetScoreButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                   text="Reset score" textAlignment="CENTER"/>
+       </VBox>
+   </right>
+</BorderPane>
