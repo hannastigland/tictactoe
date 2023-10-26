@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class HelloController {
 
     @FXML
@@ -16,7 +19,10 @@ public class HelloController {
     @FXML
     private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, resetButton;
 
+    private List<Button> buttons;
+
     private Model model = new Model();
+
     public Model getModel() {
         return model;
     }
@@ -25,11 +31,16 @@ public class HelloController {
         gridPane.disableProperty().bind(model.gameIsOverProperty());
         nameOfWinner.textProperty().bind(model.nameOfWinnerProperty());
         yourScore.textProperty().bind(model.yourScoreProperty().asString());
+        buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9);
     }
+
     public void buttonClicked(MouseEvent mouseEvent) {
-
+        model.setSymbol((Button) mouseEvent.getSource());
+        model.gameOver(buttons);
     }
 
-    public void resetButtonClicked(MouseEvent mouseEvent) {
-    }
+    public void resetButtonClicked (MouseEvent mouseEvent){
+            model.resetWinnerText(buttons);
+        }
+
 }

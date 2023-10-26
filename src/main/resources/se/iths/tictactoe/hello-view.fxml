@@ -25,23 +25,23 @@
                <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
            </rowConstraints>
            <Button fx:id="b1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
            <Button fx:id="b9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
        </GridPane>
    </center>
    <top>
