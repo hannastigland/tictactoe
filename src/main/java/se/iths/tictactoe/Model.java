@@ -1,8 +1,6 @@
 package se.iths.tictactoe;
 
-import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
@@ -14,7 +12,8 @@ public class Model {
     private StringProperty nameOfWinner = new SimpleStringProperty();
     private BooleanProperty gameIsOver = new SimpleBooleanProperty();
     private IntegerProperty yourScore = new SimpleIntegerProperty();
-    private IntegerProperty xoTurn = new SimpleIntegerProperty();
+    private IntegerProperty aiScore = new SimpleIntegerProperty();
+    private IntegerProperty playerTurn = new SimpleIntegerProperty();
     private int turnTotal; //ändra namn, och på xoTurn
     private boolean isGameOver;
     public void buttonClicked(MouseEvent event) {
@@ -22,13 +21,15 @@ public class Model {
     }
     public Model () {
         nameOfWinner.setValue("Winner: ");
-        xoTurn.setValue(0);
+        playerTurn.setValue(0);
         turnTotal = 0;
         isGameOver = false;
+        aiScore.set(0);
+        yourScore.set(0);
     }
 
     public void setSymbol(Button button) {
-        if (xoTurn.get() == 0) {
+        if (playerTurn.get() == 0) {
             button.setText("X");
         } else {
             button.setText("O");
@@ -36,17 +37,17 @@ public class Model {
         button.setDisable(true);
         nextTurn();
     }
-    public int getXoTurn() {
-        return xoTurn.get();
+    public int getPlayerTurn() {
+        return playerTurn.get();
     }
-    public IntegerProperty xoTurnProperty() {
-        return xoTurn;
+    public IntegerProperty playerTurnProperty() {
+        return playerTurn;
     }
     public void nextTurn() {
-        if (xoTurn.get() == 0)
-            xoTurn.set(1);
+        if (playerTurn.get() == 0)
+            playerTurn.set(1);
         else
-            xoTurn.set(0);
+            playerTurn.set(0);
         turnTotal++;
     }
     public String getNameOfWinner() {
@@ -75,15 +76,24 @@ public class Model {
             String winningRow = Arrays.stream(winningRows).filter(w -> w.equals("XXX") ||
                     w.equals("OOO")).findFirst().orElse("");
             if (winningRow.equals("XXX")) {
-                setNameOfWinner("Winner: X won!");
+                setNameOfWinner("Winner: You won!");
                 disableButtons(buttons);
+                onePoint(); //= givePoints
             } else if (winningRow.equals("OOO")) {
-                setNameOfWinner("Winner: O won!");
+                setNameOfWinner("Winner: Computer won!");
                 disableButtons(buttons);
+                onePoint();
             } else if(turnTotal > 8) {
                 setNameOfWinner("Winner: Draw!");
                 disableButtons(buttons);
         }
+    }
+    public void onePoint() {
+        String method_name = Thread.currentThread().getStackTrace()[3].getMethodName();
+        if (method_name.equals("buttonClicked"))
+            yourScore.set(yourScore.get()+1);
+        else
+            aiScore.set(aiScore.get()+1);
     }
 
     private void disableButtons(List <Button> buttons) {
@@ -100,13 +110,10 @@ public class Model {
     private void resetButton(Button button) {
         button.setText("");
         button.setDisable(false);
-        this.xoTurn.set(0);
+        this.playerTurn.set(0);
     }
     public int getTurnTotal() {
         return turnTotal;
-    }
-    public void setTurnTotal(int turnTotal) {
-        this.turnTotal = turnTotal;
     }
     public boolean isGameOver() {
         return isGameOver;
@@ -115,9 +122,19 @@ public class Model {
         isGameOver = gameOver;
     }
 
+    public int getYourScore() {
+        return yourScore.get();
+    }
+
     public IntegerProperty yourScoreProperty() {
         return yourScore;
     }
 
+    public int getAiScore() {
+        return aiScore.get();
+    }
 
+    public IntegerProperty aiScoreProperty() {
+        return aiScore;
+    }
 }

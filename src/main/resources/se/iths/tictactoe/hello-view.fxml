@@ -53,10 +53,13 @@
    </top>
    <right>
        <VBox prefHeight="310.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-           <Label fx:id="nameOfWinner" prefHeight="75.0" prefWidth="150.0" text="Winner:"/>
-           <Label fx:id="yourScore" prefHeight="75.0" prefWidth="150.0" text="Your score:"/>
+           <Label fx:id="nameOfWinner" prefHeight="50.0" prefWidth="150.0" text="Winner:"/>
+           <Label prefHeight="50.0" prefWidth="150.0" text="Your score: "/>
+           <Label fx:id="yourScore" prefHeight="50.0" prefWidth="150.0" text="${controller.model.yourScore}"/>
+           <Label prefHeight="50.0" prefWidth="150.0" text="Computer score: "/>
+           <Label fx:id="aiScore" prefHeight="50.0" prefWidth="150.0" text="${controller.model.aiScore}"/>
            <Button fx:id="resetButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                   onMouseClicked="#resetButtonClicked" text="Reset score" textAlignment="CENTER"/>
+                   onMouseClicked="#resetButtonClicked" text="Reset board" textAlignment="CENTER"/>
        </VBox>
    </right>
 </BorderPane>

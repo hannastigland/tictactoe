@@ -32,7 +32,7 @@ public class HelloController {
         nameOfWinner.textProperty().bind(model.nameOfWinnerProperty());
         yourScore.textProperty().bind(model.yourScoreProperty().asString());
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9);
-        buttons.forEach(e -> e.setFocusTraversable(false));
+        buttons.forEach(b -> b.setFocusTraversable(false));
     }
 
     public void buttonClicked(MouseEvent mouseEvent) {
@@ -42,12 +42,12 @@ public class HelloController {
             aiTurn();
     }
 
-    public void resetButtonClicked (MouseEvent mouseEvent){
+    public void resetButtonClicked (){
             model.resetWinnerText(buttons);
-            aiTurn();
+            model.getPlayerTurn();
         }
 
-    public void aiTurn() {
+    public void aiTurn() { //flytta till model?
         Random random = new Random();
         int selectedButton; //=buttonNumber
         while (true) {
