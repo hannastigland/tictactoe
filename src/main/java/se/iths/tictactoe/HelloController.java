@@ -1,6 +1,5 @@
 package se.iths.tictactoe;
 
-import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +8,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class HelloController {
 
@@ -32,15 +32,34 @@ public class HelloController {
         nameOfWinner.textProperty().bind(model.nameOfWinnerProperty());
         yourScore.textProperty().bind(model.yourScoreProperty().asString());
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9);
+        buttons.forEach(e -> e.setFocusTraversable(false));
     }
 
     public void buttonClicked(MouseEvent mouseEvent) {
         model.setSymbol((Button) mouseEvent.getSource());
         model.gameOver(buttons);
+        if (!model.isGameOver())
+            aiTurn();
     }
 
     public void resetButtonClicked (MouseEvent mouseEvent){
             model.resetWinnerText(buttons);
+            aiTurn();
         }
 
+    public void aiTurn() {
+        Random random = new Random();
+        int selectedButton; //=buttonNumber
+        while (true) {
+            selectedButton = random.nextInt(9);
+            if (playableButton(selectedButton)) {
+                model.setSymbol(buttons.get(selectedButton));
+                model.gameOver(buttons);
+                break;
+            }
+        }
+    }
+    private boolean playableButton(int buttonNumber) { //=int index
+        return !buttons.get(buttonNumber).isDisabled();
+    }
 }

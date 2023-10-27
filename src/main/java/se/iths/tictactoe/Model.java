@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Model {
@@ -13,39 +14,40 @@ public class Model {
     private StringProperty nameOfWinner = new SimpleStringProperty();
     private BooleanProperty gameIsOver = new SimpleBooleanProperty();
     private IntegerProperty yourScore = new SimpleIntegerProperty();
-    private IntegerProperty turn = new SimpleIntegerProperty();
-    private String [][] board;
+    private IntegerProperty xoTurn = new SimpleIntegerProperty();
+    private int turnTotal; //ändra namn, och på xoTurn
+    private boolean isGameOver;
     public void buttonClicked(MouseEvent event) {
 
     }
     public Model () {
-        board = new String [3][3];
+        nameOfWinner.setValue("Winner: ");
+        xoTurn.setValue(0);
+        turnTotal = 0;
+        isGameOver = false;
     }
-    public String [][] getBoard() {
-        return board;
-    }
+
     public void setSymbol(Button button) {
-        if (turn.get() == 0) {
+        if (xoTurn.get() == 0) {
             button.setText("X");
-            button.setDisable(true);
-            nextTurn();
         } else {
             button.setText("O");
-            button.setDisable(true);
-            nextTurn();
         }
+        button.setDisable(true);
+        nextTurn();
     }
-    public int getTurn() {
-        return turn.get();
+    public int getXoTurn() {
+        return xoTurn.get();
     }
-    public IntegerProperty turnProperty() {
-        return turn;
+    public IntegerProperty xoTurnProperty() {
+        return xoTurn;
     }
     public void nextTurn() {
-        if (turn.get() == 0)
-            turn.set(1);
+        if (xoTurn.get() == 0)
+            xoTurn.set(1);
         else
-            turn.set(0);
+            xoTurn.set(0);
+        turnTotal++;
     }
     public String getNameOfWinner() {
         return nameOfWinner.get();
@@ -56,48 +58,66 @@ public class Model {
     public void setNameOfWinner(String nameOfWinner) {
         this.nameOfWinner.set(nameOfWinner);
     }
-    public BooleanProperty gameIsOverProperty() { //namnbyte
+    public BooleanProperty gameIsOverProperty() { //namnbyte, ta bort?
         return gameIsOver;
     }
     public void gameOver(List<Button> buttons) {
-        String winningRow = "";
-        for (int i = 0; i < 8; i++) {
-            winningRow = switch (i) {
-                case 0 -> buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText();
-                case 1 -> buttons.get(3).getText() + buttons.get(4).getText() + buttons.get(5).getText();
-                case 2 -> buttons.get(6).getText() + buttons.get(7).getText() + buttons.get(8).getText();
-                case 3 -> buttons.get(0).getText() + buttons.get(3).getText() + buttons.get(6).getText();
-                case 4 -> buttons.get(1).getText() + buttons.get(4).getText() + buttons.get(7).getText();
-                case 5 -> buttons.get(2).getText() + buttons.get(5).getText() + buttons.get(8).getText();
-                case 6 -> buttons.get(0).getText() + buttons.get(4).getText() + buttons.get(8).getText();
-                case 7 -> buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText();
-                default -> "";
+        String[] winningRows = {
+            buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText(),
+                buttons.get(3).getText() + buttons.get(4).getText() + buttons.get(5).getText(),
+                buttons.get(6).getText() + buttons.get(7).getText() + buttons.get(8).getText(),
+                buttons.get(0).getText() + buttons.get(3).getText() + buttons.get(6).getText(),
+                buttons.get(1).getText() + buttons.get(4).getText() + buttons.get(7).getText(),
+                buttons.get(2).getText() + buttons.get(5).getText() + buttons.get(8).getText(),
+                buttons.get(0).getText() + buttons.get(4).getText() + buttons.get(8).getText(),
+                buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText()
             };
+            String winningRow = Arrays.stream(winningRows).filter(w -> w.equals("XXX") ||
+                    w.equals("OOO")).findFirst().orElse("");
             if (winningRow.equals("XXX")) {
                 setNameOfWinner("Winner: X won!");
-                buttons.forEach(e -> e.setDisable(true));
+                disableButtons(buttons);
             } else if (winningRow.equals("OOO")) {
                 setNameOfWinner("Winner: O won!");
-                buttons.forEach(e -> e.setDisable(true));
-            }
+                disableButtons(buttons);
+            } else if(turnTotal > 8) {
+                setNameOfWinner("Winner: Draw!");
+                disableButtons(buttons);
         }
+    }
+
+    private void disableButtons(List <Button> buttons) {
+        buttons.forEach(e -> e.setDisable(true));
+        this.isGameOver = true;
     }
     public void resetWinnerText(List <Button> buttons) {
         this.nameOfWinner.set("Winner: ");
         buttons.forEach(this::resetButton);
+        this.turnTotal = 0;
+        this.isGameOver = false;
     }
 
-    private void resetButton(Button e) {
-        e.setText("");
-        e.setDisable(false);
-        this.turn.set(0);
+    private void resetButton(Button button) {
+        button.setText("");
+        button.setDisable(false);
+        this.xoTurn.set(0);
     }
-    public void setGameIsOver(boolean gameIsOver) { //namnbyte
-        this.gameIsOver.set(gameIsOver);
+    public int getTurnTotal() {
+        return turnTotal;
+    }
+    public void setTurnTotal(int turnTotal) {
+        this.turnTotal = turnTotal;
+    }
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+    public void setGameOver(boolean gameOver) {
+        isGameOver = gameOver;
     }
 
     public IntegerProperty yourScoreProperty() {
         return yourScore;
     }
+
 
 }
