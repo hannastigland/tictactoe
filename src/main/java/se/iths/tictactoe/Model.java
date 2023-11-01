@@ -2,7 +2,6 @@ package se.iths.tictactoe;
 
 import javafx.beans.property.*;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,25 +10,22 @@ import java.util.Random;
 public class Model {
 
     private StringProperty nameOfWinner = new SimpleStringProperty();
-    private BooleanProperty gameIsOver = new SimpleBooleanProperty();
     private IntegerProperty yourScore = new SimpleIntegerProperty();
     private IntegerProperty aiScore = new SimpleIntegerProperty();
     private IntegerProperty playerTurn = new SimpleIntegerProperty();
-    private int turnTotal; //ändra namn, och på xoTurn
+    private int numberOfMoves;
     private boolean isGameOver;
-    public void buttonClicked(MouseEvent event) {
 
-    }
     public Model () {
         nameOfWinner.setValue("Winner: ");
         playerTurn.setValue(0);
-        turnTotal = 0;
+        numberOfMoves = 0;
         isGameOver = false;
         aiScore.set(0);
         yourScore.set(0);
     }
 
-    public void setSymbol(Button button) {
+    public void setXo(Button button) {
         if (playerTurn.get() == 0) {
             button.setText("X");
         } else {
@@ -41,28 +37,22 @@ public class Model {
     public int getPlayerTurn() {
         return playerTurn.get();
     }
-    public IntegerProperty playerTurnProperty() {
-        return playerTurn;
-    }
+
     public void nextTurn() {
         if (playerTurn.get() == 0)
             playerTurn.set(1);
         else
             playerTurn.set(0);
-        turnTotal++;
+        numberOfMoves++;
     }
-    public String getNameOfWinner() {
-        return nameOfWinner.get();
-    }
+
     public StringProperty nameOfWinnerProperty() {
         return nameOfWinner;
     }
     public void setNameOfWinner(String nameOfWinner) {
         this.nameOfWinner.set(nameOfWinner);
     }
-    public BooleanProperty gameIsOverProperty() { //namnbyte, ta bort?
-        return gameIsOver;
-    }
+
     public void gameOver(List<Button> buttons) {
         String[] winningRows = {
             buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText(),
@@ -79,22 +69,22 @@ public class Model {
             if (winningRow.equals("XXX")) {
                 setNameOfWinner("Winner: You won!");
                 disableButtons(buttons);
-                onePoint(); //= givePoints
+                onePoint();
             } else if (winningRow.equals("OOO")) {
                 setNameOfWinner("Winner: Computer won!");
                 disableButtons(buttons);
                 onePoint();
-            } else if(turnTotal > 8) {
+            } else if(numberOfMoves > 8) {
                 setNameOfWinner("Winner: Draw!");
                 disableButtons(buttons);
         }
     }
     public void onePoint() {
-        String method_name = Thread.currentThread().getStackTrace()[3].getMethodName();
+        String method_name=Thread.currentThread().getStackTrace()[3].getMethodName();
         if (method_name.equals("buttonClicked"))
-            yourScore.set(yourScore.get()+1);
+            yourScore.set(yourScore.get() + 1);
         else
-            aiScore.set(aiScore.get()+1);
+            aiScore.set(aiScore.get() + 1);
     }
 
     private void disableButtons(List <Button> buttons) {
@@ -104,7 +94,7 @@ public class Model {
     public void resetWinnerText(List <Button> buttons) {
         this.nameOfWinner.set("Winner: ");
         buttons.forEach(this::resetButton);
-        this.turnTotal = 0;
+        this.numberOfMoves = 0;
         this.isGameOver = false;
     }
 
@@ -113,16 +103,10 @@ public class Model {
         button.setDisable(false);
         this.playerTurn.set(0);
     }
-    public int getTurnTotal() {
-        return turnTotal;
-    }
+
     public boolean isGameOver() {
         return isGameOver;
     }
-    public void setGameOver(boolean gameOver) {
-        isGameOver = gameOver;
-    }
-
     public int getYourScore() {
         return yourScore.get();
     }
@@ -144,13 +128,13 @@ public class Model {
         while (true) {
             selectedButton = random.nextInt(9);
             if (playableButton(selectedButton, buttons)) {
-                setSymbol(buttons.get(selectedButton));
+                setXo(buttons.get(selectedButton));
                 gameOver(buttons);
                 break;
             }
         }
     }
-    private boolean playableButton(int buttonNumber, List <Button> buttons) { //=int index
+    private boolean playableButton(int buttonNumber, List <Button> buttons) {
         return !buttons.get(buttonNumber).isDisabled();
     }
 }

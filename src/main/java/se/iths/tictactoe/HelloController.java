@@ -15,8 +15,10 @@ public class HelloController {
     public Label yourScore, nameOfWinner;
     @FXML
     public GridPane gridPane;
+    public Label aiScore;
+    public Button resetButton;
     @FXML
-    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, resetButton;
+    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9;
 
     private List<Button> buttons;
 
@@ -27,7 +29,6 @@ public class HelloController {
     }
 
     public void initialize() {
-        gridPane.disableProperty().bind(model.gameIsOverProperty());
         nameOfWinner.textProperty().bind(model.nameOfWinnerProperty());
         yourScore.textProperty().bind(model.yourScoreProperty().asString());
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9);
@@ -35,7 +36,7 @@ public class HelloController {
     }
 
     public void buttonClicked(MouseEvent mouseEvent) {
-        model.setSymbol((Button) mouseEvent.getSource());
+        model.setXo((Button) mouseEvent.getSource());
         model.gameOver(buttons);
         if (!model.isGameOver())
             model.aiTurn(buttons);
