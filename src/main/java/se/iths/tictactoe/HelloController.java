@@ -8,7 +8,6 @@ import javafx.scene.layout.GridPane;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class HelloController {
 
@@ -39,27 +38,11 @@ public class HelloController {
         model.setSymbol((Button) mouseEvent.getSource());
         model.gameOver(buttons);
         if (!model.isGameOver())
-            aiTurn();
+            model.aiTurn(buttons);
     }
 
-    public void resetButtonClicked (){
-            model.resetWinnerText(buttons);
-            model.getPlayerTurn();
-        }
-
-    public void aiTurn() { //flytta till model?
-        Random random = new Random();
-        int selectedButton; //=buttonNumber
-        while (true) {
-            selectedButton = random.nextInt(9);
-            if (playableButton(selectedButton)) {
-                model.setSymbol(buttons.get(selectedButton));
-                model.gameOver(buttons);
-                break;
-            }
-        }
-    }
-    private boolean playableButton(int buttonNumber) { //=int index
-        return !buttons.get(buttonNumber).isDisabled();
+    public void resetButtonClicked() {
+        model.resetWinnerText(buttons);
+        model.getPlayerTurn();
     }
 }

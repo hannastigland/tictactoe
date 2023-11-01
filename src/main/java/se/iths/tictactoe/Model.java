@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Model {
 
@@ -136,5 +137,20 @@ public class Model {
 
     public IntegerProperty aiScoreProperty() {
         return aiScore;
+    }
+    public void aiTurn(List<Button> buttons) {
+        Random random = new Random();
+        int selectedButton; //=buttonNumber
+        while (true) {
+            selectedButton = random.nextInt(9);
+            if (playableButton(selectedButton, buttons)) {
+                setSymbol(buttons.get(selectedButton));
+                gameOver(buttons);
+                break;
+            }
+        }
+    }
+    private boolean playableButton(int buttonNumber, List <Button> buttons) { //=int index
+        return !buttons.get(buttonNumber).isDisabled();
     }
 }

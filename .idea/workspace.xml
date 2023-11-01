@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="AI implemented&#10;Works without crashing but a little buggy">
+    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Works good, only tests left">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,10 @@
       <workItem from="1698219144770" duration="2107000" />
       <workItem from="1698233712648" duration="742000" />
       <workItem from="1698234477675" duration="6360000" />
-      <workItem from="1698311894717" duration="16184000" />
+      <workItem from="1698311894717" duration="16520000" />
+      <workItem from="1698409062309" duration="141000" />
+      <workItem from="1698409265025" duration="2440000" />
+      <workItem from="1698841517740" duration="1267000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -139,7 +142,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1698395116865</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Works good, only tests left">
+      <option name="closed" value="true" />
+      <created>1698401242196</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1698401242196</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +173,8 @@
     <MESSAGE value="Added some methods" />
     <MESSAGE value="Buttons can be clicked with X and O&#10;Winnertext says who wins&#10;Resetbutton works" />
     <MESSAGE value="AI implemented&#10;Works without crashing but a little buggy" />
-    <option name="LAST_COMMIT_MESSAGE" value="AI implemented&#10;Works without crashing but a little buggy" />
+    <MESSAGE value="Works good, only tests left" />
+    <option name="LAST_COMMIT_MESSAGE" value="Works good, only tests left" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
