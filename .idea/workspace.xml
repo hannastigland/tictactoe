@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Changed names, removed stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" afterDir="false" />
+    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Removed Button from model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +62,9 @@
       <recent name="se.iths.tictactoe" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.HelloApplication" />
       <module name="tictactoe" />
       <extension name="coverage">
         <pattern>
@@ -73,25 +72,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.AppTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testValidMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tictactoe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="se.iths.tictactoe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.AppTest" />
-      <option name="METHOD_NAME" value="testValidMove" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,7 +91,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="se.iths.tictactoe in tictactoe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TicTacToeModelTest.isNotAValidMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
         <pattern>
@@ -120,17 +100,52 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
+      <option name="METHOD_NAME" value="isNotAValidMove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeModelTest.testInvalidMoveOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
+      <option name="METHOD_NAME" value="testInvalidMoveOutOfBounds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeModelTest.testSwitchCurrentPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
+      <option name="METHOD_NAME" value="testSwitchCurrentPlayer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
-        <item itemvalue="JUnit.se.iths.tictactoe in tictactoe" />
-        <item itemvalue="JUnit.AppTest" />
-        <item itemvalue="JUnit.AppTest.testValidMove" />
+        <item itemvalue="JUnit.TicTacToeModelTest.testInvalidMoveOutOfBounds" />
+        <item itemvalue="JUnit.TicTacToeModelTest.testSwitchCurrentPlayer" />
+        <item itemvalue="JUnit.TicTacToeModelTest.isNotAValidMove" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +190,7 @@
       <workItem from="1699605029258" duration="329000" />
       <workItem from="1699605427178" duration="5209000" />
       <workItem from="1699610667337" duration="4163000" />
-      <workItem from="1699633661147" duration="8001000" />
+      <workItem from="1699633661147" duration="18938000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -247,7 +262,14 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1698850259505</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="Removed Button from model">
+      <option name="closed" value="true" />
+      <created>1699698697072</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1699698697072</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +295,8 @@
     <MESSAGE value="AI implemented&#10;Works without crashing but a little buggy" />
     <MESSAGE value="Works good, only tests left" />
     <MESSAGE value="Changed names, removed stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed names, removed stuff" />
+    <MESSAGE value="Removed Button from model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Button from model" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -25,23 +25,23 @@
                <RowConstraints maxHeight="100.0" vgrow="SOMETIMES"/>
            </rowConstraints>
            <Button fx:id="b1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="0" GridPane.rowIndex="0" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="0" GridPane.rowIndex="0" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="1" GridPane.rowIndex="0" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="1" GridPane.rowIndex="0" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="2" GridPane.rowIndex="0" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="2" GridPane.rowIndex="0" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="0" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="0" GridPane.rowIndex="1" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="1" GridPane.rowIndex="1" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="2" GridPane.rowIndex="1" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="0" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="0" GridPane.rowIndex="2" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#handlePlayerTurn"/>
            <Button fx:id="b9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                   GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#buttonClicked"/>
+                   GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#handlePlayerTurn"/>
        </GridPane>
    </center>
    <top>
@@ -53,11 +53,10 @@
    </top>
    <right>
        <VBox prefHeight="310.0" prefWidth="165.0" BorderPane.alignment="CENTER">
-           <Label fx:id="player" prefHeight="50.0" prefWidth="150.0" text="Your score: 0"/>
-           <Label prefHeight="50.0" prefWidth="150.0" text="X"/>
+           <Label fx:id="whoWinsLabel" prefHeight="50.0" prefWidth="150.0" text="Winner: "/>
+           <Label fx:id="humanPlayer" prefHeight="50.0" prefWidth="150.0" text="Your score: 0"/>
            <Label fx:id="aiPlayer" prefHeight="50.0" prefWidth="150.0" text="Computer score: 0"/>
-           <Label prefHeight="50.0" prefWidth="150.0" text="O"/>
-           <Label fx:id="winnerName" prefHeight="50.0" prefWidth="150.0" text=""/>
+
            <Button fx:id="resetButton" alignment="CENTER" contentDisplay="CENTER"
                    onMouseClicked="#resetButtonClicked" text="Reset board" textAlignment="CENTER"/>
        </VBox>

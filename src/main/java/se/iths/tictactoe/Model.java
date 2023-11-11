@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Model {
     public String[][] gameBoard;
-    public Player player1 = new Player("x");
-    public Player aiPlayer = new Player("o");
+    public Player player1 = new Player("X");
+    public Player aiPlayer = new Player("O");
     public String currentPlayer = player1.getPlayer();
 
     public Model() {
@@ -21,58 +21,55 @@ public class Model {
         }
     }
 
-    public String[][] getGameBoard() {
-        return gameBoard;
-    }
-
     public void setGameBoard(String[][] gameBoard) {
         this.gameBoard = gameBoard;
     }
 
-    public void setABoardPosition(int row, int column, String value) {
-        if (isValidMove(row, column)) { //namnbyte x2 + value
-            gameBoard[row][column] = value;
+    public void placeSymbolAt(int row, int column, String symbol) {
+        if (isMoveValid(row, column)) {
+            gameBoard[row][column] = symbol;
         }
     }
 
-    public boolean isValidMove(int row, int column) {
-        return gameBoard[row][column].equals(" ");//byt namn
+    public boolean isMoveValid(int row, int column) {
+        return gameBoard[row][column].equals(" ");
     }
 
-    public String getABoardPosition(int row, int column) {
-        return gameBoard[row][column];//byt namn
+    public String getSymbolAt(int row, int column) {
+        return gameBoard[row][column];
     }
 
-    public boolean checkWinner() {
-        if (hasWon(player1.getPlayer())) {
-            player1.setPlayerScore(1);
+    public boolean checkWinnerOrDraw() {
+        if (whoIsWinner(player1.getPlayer())) {
+            player1.updatePlayerScore(1);
             return true;
-        } else if (hasWon(aiPlayer.getPlayer())) {
-            aiPlayer.setPlayerScore(1);
+        } else if (whoIsWinner(aiPlayer.getPlayer())) {
+            aiPlayer.updatePlayerScore(1);
             return true;
         } else return isBoardFull();
     }
 
-    public boolean hasWon(String player) { //byt namn
-        for (int i = 0; i < 3; i++) {
-            if (player.equals(gameBoard[i][0]) && player.equals(gameBoard[i][1]) && player.equals(gameBoard[i][2]))
-                return true;
-            if (player.equals(gameBoard[0][i]) && player.equals(gameBoard[1][i]) && player.equals(gameBoard[2][i]))
-                return true;
-        }
-        if (player.equals(gameBoard[0][0]) && player.equals(gameBoard[1][1]) && player.equals(gameBoard[2][2]))
-            return true;
-
-        if (player.equals(gameBoard[0][2]) && player.equals(gameBoard[1][1]) && player.equals(gameBoard[2][0]))
-            return true;
-
-        return false;
+    public boolean isDraw() {
+        return isBoardFull() && !whoIsWinner(player1.getPlayer()) && !whoIsWinner(aiPlayer.getPlayer());
     }
 
-    boolean isBoardFull() { //bytnamn
+    public boolean whoIsWinner(String playerSymbol) {
+        for (int i = 0; i < 3; i++) {
+            if (playerSymbol.equals(gameBoard[i][0]) && playerSymbol.equals(gameBoard[i][1]) && playerSymbol.equals(gameBoard[i][2]))
+                return true;
+            if (playerSymbol.equals(gameBoard[0][i]) && playerSymbol.equals(gameBoard[1][i]) && playerSymbol.equals(gameBoard[2][i]))
+                return true;
+        }
+        if (playerSymbol.equals(gameBoard[0][0]) && playerSymbol.equals(gameBoard[1][1]) && playerSymbol.equals(gameBoard[2][2]))
+            return true;
+
+        return playerSymbol.equals(gameBoard[0][2]) && playerSymbol.equals(gameBoard[1][1]) && playerSymbol.equals(gameBoard[2][0]);
+    }
+
+    boolean isBoardFull() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (!"x".equals(gameBoard[i][j]) && !"o".equals(gameBoard[i][j])) {
+                if (!"X".equals(gameBoard[i][j]) && !"O".equals(gameBoard[i][j])) {
                     return false;
                 }
             }
@@ -80,7 +77,7 @@ public class Model {
         return true;
     }
 
-    public void toggleCurrentPlayer() { //bytnamn
+    public void switchCurrentPlayer() {
         currentPlayer = (Objects.equals(currentPlayer, player1.getPlayer())) ? aiPlayer.getPlayer() : player1.getPlayer();
     }
 }
