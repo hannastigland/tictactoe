@@ -1,140 +1,86 @@
 package se.iths.tictactoe;
 
-import javafx.beans.property.*;
-import javafx.scene.control.Button;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.Objects;
 
 public class Model {
+    public String[][] gameBoard;
+    public Player player1 = new Player("x");
+    public Player aiPlayer = new Player("o");
+    public String currentPlayer = player1.getPlayer();
 
-    private StringProperty nameOfWinner = new SimpleStringProperty();
-    private IntegerProperty yourScore = new SimpleIntegerProperty();
-    private IntegerProperty aiScore = new SimpleIntegerProperty();
-    private IntegerProperty playerTurn = new SimpleIntegerProperty();
-    private int numberOfMoves;
-    private boolean isGameOver;
-
-    public Model () {
-        nameOfWinner.setValue("Winner: ");
-        playerTurn.setValue(0);
-        numberOfMoves = 0;
-        isGameOver = false;
-        aiScore.set(0);
-        yourScore.set(0);
+    public Model() {
+        initializeGameBoard();
     }
 
-    public void setXo(Button button) {
-        if (playerTurn.get() == 0) {
-            button.setText("X");
-        } else {
-            button.setText("O");
-        }
-        button.setDisable(true);
-        nextTurn();
-    }
-    public int getPlayerTurn() {
-        return playerTurn.get();
-    }
-
-    public void nextTurn() {
-        if (playerTurn.get() == 0)
-            playerTurn.set(1);
-        else
-            playerTurn.set(0);
-        numberOfMoves++;
-    }
-
-    public StringProperty nameOfWinnerProperty() {
-        return nameOfWinner;
-    }
-    public void setNameOfWinner(String nameOfWinner) {
-        this.nameOfWinner.set(nameOfWinner);
-    }
-
-    public void gameOver(List<Button> buttons) {
-        String[] winningRows = {
-            buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText(),
-                buttons.get(3).getText() + buttons.get(4).getText() + buttons.get(5).getText(),
-                buttons.get(6).getText() + buttons.get(7).getText() + buttons.get(8).getText(),
-                buttons.get(0).getText() + buttons.get(3).getText() + buttons.get(6).getText(),
-                buttons.get(1).getText() + buttons.get(4).getText() + buttons.get(7).getText(),
-                buttons.get(2).getText() + buttons.get(5).getText() + buttons.get(8).getText(),
-                buttons.get(0).getText() + buttons.get(4).getText() + buttons.get(8).getText(),
-                buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText()
-            };
-            String winningRow = Arrays.stream(winningRows).filter(w -> w.equals("XXX") ||
-                    w.equals("OOO")).findFirst().orElse("");
-            if (winningRow.equals("XXX")) {
-                setNameOfWinner("Winner: You won!");
-                disableButtons(buttons);
-                onePoint();
-            } else if (winningRow.equals("OOO")) {
-                setNameOfWinner("Winner: Computer won!");
-                disableButtons(buttons);
-                onePoint();
-            } else if(numberOfMoves > 8) {
-                setNameOfWinner("Winner: Draw!");
-                disableButtons(buttons);
-        }
-    }
-    public void onePoint() {
-        String method_name=Thread.currentThread().getStackTrace()[3].getMethodName();
-        if (method_name.equals("buttonClicked"))
-            yourScore.set(yourScore.get() + 1);
-        else
-            aiScore.set(aiScore.get() + 1);
-    }
-
-    private void disableButtons(List <Button> buttons) {
-        buttons.forEach(e -> e.setDisable(true));
-        this.isGameOver = true;
-    }
-    public void resetWinnerText(List <Button> buttons) {
-        this.nameOfWinner.set("Winner: ");
-        buttons.forEach(this::resetButton);
-        this.numberOfMoves = 0;
-        this.isGameOver = false;
-    }
-
-    private void resetButton(Button button) {
-        button.setText("");
-        button.setDisable(false);
-        this.playerTurn.set(0);
-    }
-
-    public boolean isGameOver() {
-        return isGameOver;
-    }
-    public int getYourScore() {
-        return yourScore.get();
-    }
-
-    public IntegerProperty yourScoreProperty() {
-        return yourScore;
-    }
-
-    public int getAiScore() {
-        return aiScore.get();
-    }
-
-    public IntegerProperty aiScoreProperty() {
-        return aiScore;
-    }
-    public void aiTurn(List<Button> buttons) {
-        Random random = new Random();
-        int selectedButton; //=buttonNumber
-        while (true) {
-            selectedButton = random.nextInt(9);
-            if (playableButton(selectedButton, buttons)) {
-                setXo(buttons.get(selectedButton));
-                gameOver(buttons);
-                break;
+    public void initializeGameBoard() {
+        gameBoard = new String[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                gameBoard[i][j] = " ";
             }
         }
     }
-    private boolean playableButton(int buttonNumber, List <Button> buttons) {
-        return !buttons.get(buttonNumber).isDisabled();
+
+    public String[][] getGameBoard() {
+        return gameBoard;
+    }
+
+    public void setGameBoard(String[][] gameBoard) {
+        this.gameBoard = gameBoard;
+    }
+
+    public void setABoardPosition(int row, int column, String value) {
+        if (isValidMove(row, column)) { //namnbyte x2 + value
+            gameBoard[row][column] = value;
+        }
+    }
+
+    public boolean isValidMove(int row, int column) {
+        return gameBoard[row][column].equals(" ");//byt namn
+    }
+
+    public String getABoardPosition(int row, int column) {
+        return gameBoard[row][column];//byt namn
+    }
+
+    public boolean checkWinner() {
+        if (hasWon(player1.getPlayer())) {
+            player1.setPlayerScore(1);
+            return true;
+        } else if (hasWon(aiPlayer.getPlayer())) {
+            aiPlayer.setPlayerScore(1);
+            return true;
+        } else return isBoardFull();
+    }
+
+    public boolean hasWon(String player) { //byt namn
+        for (int i = 0; i < 3; i++) {
+            if (player.equals(gameBoard[i][0]) && player.equals(gameBoard[i][1]) && player.equals(gameBoard[i][2]))
+                return true;
+            if (player.equals(gameBoard[0][i]) && player.equals(gameBoard[1][i]) && player.equals(gameBoard[2][i]))
+                return true;
+        }
+        if (player.equals(gameBoard[0][0]) && player.equals(gameBoard[1][1]) && player.equals(gameBoard[2][2]))
+            return true;
+
+        if (player.equals(gameBoard[0][2]) && player.equals(gameBoard[1][1]) && player.equals(gameBoard[2][0]))
+            return true;
+
+        return false;
+    }
+
+    boolean isBoardFull() { //bytnamn
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!"x".equals(gameBoard[i][j]) && !"o".equals(gameBoard[i][j])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void toggleCurrentPlayer() { //bytnamn
+        currentPlayer = (Objects.equals(currentPlayer, player1.getPlayer())) ? aiPlayer.getPlayer() : player1.getPlayer();
     }
 }

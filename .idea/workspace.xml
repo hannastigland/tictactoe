@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Works good, only tests left">
+    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="Changed names, removed stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/tictactoe/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -44,10 +52,88 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="se.iths.tictactoe" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.AppTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.testValidMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.AppTest" />
+      <option name="METHOD_NAME" value="testValidMove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="se.iths.tictactoe in tictactoe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TicTacToeModelTest" />
+        <item itemvalue="JUnit.se.iths.tictactoe in tictactoe" />
+        <item itemvalue="JUnit.AppTest" />
+        <item itemvalue="JUnit.AppTest.testValidMove" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,6 +170,12 @@
       <workItem from="1698409062309" duration="141000" />
       <workItem from="1698409265025" duration="2440000" />
       <workItem from="1698841517740" duration="1267000" />
+      <workItem from="1698927464319" duration="5144000" />
+      <workItem from="1699518926240" duration="3594000" />
+      <workItem from="1699605029258" duration="329000" />
+      <workItem from="1699605427178" duration="5209000" />
+      <workItem from="1699610667337" duration="4163000" />
+      <workItem from="1699633661147" duration="8001000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -148,7 +240,14 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1698401242196</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Changed names, removed stuff">
+      <option name="closed" value="true" />
+      <created>1698850259505</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1698850259505</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +272,8 @@
     <MESSAGE value="Buttons can be clicked with X and O&#10;Winnertext says who wins&#10;Resetbutton works" />
     <MESSAGE value="AI implemented&#10;Works without crashing but a little buggy" />
     <MESSAGE value="Works good, only tests left" />
-    <option name="LAST_COMMIT_MESSAGE" value="Works good, only tests left" />
+    <MESSAGE value="Changed names, removed stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed names, removed stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

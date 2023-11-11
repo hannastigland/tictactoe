@@ -1,6 +1,5 @@
 package se.iths.tictactoe;
 
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -8,42 +7,98 @@ import javafx.scene.layout.GridPane;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class HelloController {
-
-    @FXML
-    public Label yourScore, nameOfWinner;
-    @FXML
-    public GridPane gridPane;
-    public Label aiScore;
-    public Button resetButton;
-    @FXML
-    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9;
-
-    private List<Button> buttons;
-
-    private Model model = new Model();
-
-    public Model getModel() {
-        return model;
-    }
+    private final Model model = new Model();
+    public Label player, aiPlayer;
+    public Button resetButton, b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    public Button[] buttons;
+    private boolean gameOver;
 
     public void initialize() {
-        nameOfWinner.textProperty().bind(model.nameOfWinnerProperty());
-        yourScore.textProperty().bind(model.yourScoreProperty().asString());
-        buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9);
-        buttons.forEach(b -> b.setFocusTraversable(false));
+        buttons = new Button[] {b1, b2, b3, b4, b5, b6, b7, b8, b9};
+        startGame();
     }
 
-    public void buttonClicked(MouseEvent mouseEvent) {
-        model.setXo((Button) mouseEvent.getSource());
-        model.gameOver(buttons);
-        if (!model.isGameOver())
-            model.aiTurn(buttons);
+    private void startGame() {
+        gameOver = false;
+        model.currentPlayer = model.player1.getPlayer();
+        updateButtonLabels();
     }
 
     public void resetButtonClicked() {
-        model.resetWinnerText(buttons);
-        model.getPlayerTurn();
+        model.initializeGameBoard();
+        startGame();
     }
+
+    private void updateButtonLabels() { //byt namn
+        for (Button button : buttons) {
+            Integer rowIndex = GridPane.getRowIndex(button);
+            Integer columnIndex = GridPane.getColumnIndex(button);
+            button.setText(model.getABoardPosition(rowIndex, columnIndex));
+        }
+    }
+    public void buttonClicked(MouseEvent mouseEvent) {
+        if ("x".equals(model.currentPlayer)&& !gameOver) {
+            playerTurn(mouseEvent);
+        }
+    }
+
+    private void playerTurn(MouseEvent mouseEvent) {
+        Object source = mouseEvent.getSource();
+        if (source instanceof Button clickedButton) {
+            updateGame(clickedButton);
+            aiTurn();
+        }
+    }
+
+    public void updateGame(Button button) { //byt namn
+        Integer rowIndex = GridPane.getRowIndex(button);
+        Integer columnIndex = GridPane.getColumnIndex(button); //columnindexindex?
+        if (model.isValidMove(rowIndex, columnIndex)) {
+            button.setText(model.currentPlayer);
+            updateModel(rowIndex, columnIndex);
+            if (model.checkWinner()) {
+                updateScoreLabels();
+                gameOver = true;
+            } else {
+                model.toggleCurrentPlayer();
+            }
+        }
+    }
+
+    private void updateModel(int rowIndex, int columnIndex) {
+        model.setABoardPosition(rowIndex, columnIndex, model.currentPlayer);
+    }
+
+    private void updateScoreLabels() { //bytnamn
+        int playerScore = model.player1.getPlayerScore();
+        int aiScore = model.aiPlayer.getPlayerScore();
+        player.setText("Your score: " + (playerScore));
+        aiPlayer.setText("Computer score: " + (aiScore));
+    }
+
+    public void aiTurn() { //byta namn på allt nere
+        if ("o".equals(model.currentPlayer) && !gameOver) {
+            List<Button> emptyPositions = filterForEmptyPositions();
+            if (!emptyPositions.isEmpty()) {
+                int selected = randomPosition(emptyPositions);
+                Button button = emptyPositions.get(selected);
+                updateGame(button);
+            }
+        }
+    }
+
+    private static int randomPosition(List<Button> emptyPositions) {
+        return new Random().nextInt(emptyPositions.size());
+    }
+
+    private List<Button> filterForEmptyPositions() {
+        return Arrays.stream(buttons)
+                .filter(button -> button.getText().equals(" "))
+                .collect(Collectors.toList());
+    }
+
 }
