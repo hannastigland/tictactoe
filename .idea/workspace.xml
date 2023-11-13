@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="updates" />
+    <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="updates">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,20 +58,7 @@
       <recent name="se.iths.tictactoe" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.HelloApplication" />
-      <module name="tictactoe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="se.iths.tictactoe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="TicTacToeModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
@@ -84,7 +74,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToeModelTest.isNotAValidMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TicTacToeModelTest.emptyButtonCanBeSelected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +84,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
       <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
-      <option name="METHOD_NAME" value="isNotAValidMove" />
+      <option name="METHOD_NAME" value="emptyButtonCanBeSelected" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToeModelTest.testInvalidMoveOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TicTacToeModelTest.gameEndsWithWinnerOrDraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +100,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
       <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
-      <option name="METHOD_NAME" value="testInvalidMoveOutOfBounds" />
+      <option name="METHOD_NAME" value="gameEndsWithWinnerOrDraw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToeModelTest.testSwitchCurrentPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TicTacToeModelTest.occupiedButtonCantBeSelected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
         <pattern>
@@ -126,7 +116,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
       <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
-      <option name="METHOD_NAME" value="testSwitchCurrentPlayer" />
+      <option name="METHOD_NAME" value="occupiedButtonCantBeSelected" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeModelTest.validMovesForBothPlayers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tictactoe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.tictactoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.tictactoe.TicTacToeModelTest" />
+      <option name="METHOD_NAME" value="validMovesForBothPlayers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
-        <item itemvalue="JUnit.TicTacToeModelTest.testInvalidMoveOutOfBounds" />
-        <item itemvalue="JUnit.TicTacToeModelTest.testSwitchCurrentPlayer" />
-        <item itemvalue="JUnit.TicTacToeModelTest.isNotAValidMove" />
+        <item itemvalue="JUnit.TicTacToeModelTest.gameEndsWithWinnerOrDraw" />
+        <item itemvalue="JUnit.TicTacToeModelTest.occupiedButtonCantBeSelected" />
+        <item itemvalue="JUnit.TicTacToeModelTest.emptyButtonCanBeSelected" />
+        <item itemvalue="JUnit.TicTacToeModelTest.validMovesForBothPlayers" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +190,7 @@
       <workItem from="1699605427178" duration="5209000" />
       <workItem from="1699610667337" duration="4163000" />
       <workItem from="1699633661147" duration="19166000" />
-      <workItem from="1699803291545" duration="3827000" />
+      <workItem from="1699803291545" duration="7144000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -284,7 +290,14 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1699818319529</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="updates">
+      <option name="closed" value="true" />
+      <created>1699818546457</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1699818546457</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -22,6 +22,7 @@ class TicTacToeModelTest {
         };
         model.setGameBoard(board);
         assertFalse(model.isMoveValid(0, 1));
+        assertFalse(model.isMoveValid(1, 2));
     }
 
     @Test
@@ -33,6 +34,7 @@ class TicTacToeModelTest {
         };
         model.setGameBoard(board);
         assertTrue(model.isMoveValid(0, 2));
+        assertFalse(model.isMoveValid(2, 2));
     }
 
     @Test
@@ -45,32 +47,44 @@ class TicTacToeModelTest {
         model.setGameBoard(board);
         assertTrue(model.isMoveValid(0, 0));
         assertTrue(model.isMoveValid(2, 1));
+        assertFalse(model.isMoveValid(2, 0));
     }
 
     @Test
     public void playerWins() {
         model.initializeGameBoard();
-        model.placeSymbolAt(0, 0, "X");
-        model.placeSymbolAt(0, 1, "X");
-        model.placeSymbolAt(0, 2, "X");
+        model.placeSymbolAt(2, 0, "X");
+        model.placeSymbolAt(2, 1, "X");
+        model.placeSymbolAt(2, 2, "X");
+        model.placeSymbolAt(0, 0, "O");
+        model.placeSymbolAt(0, 2, "O");
+        model.placeSymbolAt(1, 1, "O");
         assertTrue(model.whoIsWinner("X"));
+        assertFalse(model.whoIsWinner("O"));
     }
 
     @Test
     public void playerDoesNotWin() {
         model.initializeGameBoard();
-        model.placeSymbolAt(0, 0, "X");
-        model.placeSymbolAt(0, 1, "X");
-        model.placeSymbolAt(0, 2, "X");
-        assertFalse(model.whoIsWinner("O"));
+        model.placeSymbolAt(0, 2, "O");
+        model.placeSymbolAt(1, 1, "O");
+        model.placeSymbolAt(2, 0, "O");
+        model.placeSymbolAt(1, 2, "X");
+        model.placeSymbolAt(2, 1, "X");
+        model.placeSymbolAt(2, 2, "X");
+        assertFalse(model.whoIsWinner("X"));
+        assertTrue(model.whoIsWinner("O"));
     }
 
     @Test
     public void aiWins() {
         model.initializeGameBoard();
-        model.placeSymbolAt(0, 0, "O");
-        model.placeSymbolAt(0, 1, "O");
-        model.placeSymbolAt(0, 2, "O");
+        model.placeSymbolAt(1, 0, "O");
+        model.placeSymbolAt(1, 1, "O");
+        model.placeSymbolAt(1, 2, "O");
+        model.placeSymbolAt(0, 1, "X");
+        model.placeSymbolAt(0, 2, "X");
+        model.placeSymbolAt(2, 0, "X");
         assertFalse(model.whoIsWinner("X"));
         assertTrue(model.whoIsWinner("O"));
     }
@@ -80,8 +94,12 @@ class TicTacToeModelTest {
         model.initializeGameBoard();
         model.placeSymbolAt(0, 0, "O");
         model.placeSymbolAt(0, 1, "O");
-        model.placeSymbolAt(0, 2, "O");
-        assertFalse(model.whoIsWinner("X"));
+        model.placeSymbolAt(1, 1, "O");
+        model.placeSymbolAt(2, 0, "X");
+        model.placeSymbolAt(2, 1, "X");
+        model.placeSymbolAt(2, 2, "X");
+        assertFalse(model.whoIsWinner("O"));
+        assertTrue(model.whoIsWinner("X"));
     }
 
     @Test
@@ -92,7 +110,9 @@ class TicTacToeModelTest {
                 {"O", "X", "O"}
         };
         model.setGameBoard(board);
-        assertTrue(model.isBoardFull());
+        assertTrue(model.isDraw());
+        assertFalse(model.whoIsWinner("X"));
+        assertFalse(model.whoIsWinner("O"));
     }
 
     @Test
@@ -105,6 +125,8 @@ class TicTacToeModelTest {
         model.setGameBoard(winBoard);
         assertTrue(model.checkWinnerOrDraw());
         assertTrue(model.whoIsWinner("X"));
+        assertFalse(model.whoIsWinner("O"));
+        assertFalse(model.isDraw());
 
         model.initializeGameBoard();
 
@@ -114,8 +136,9 @@ class TicTacToeModelTest {
                 {"O", "X", "X"}
         };
         model.setGameBoard(drawBoard);
-        assertTrue(model.checkWinnerOrDraw());
         assertTrue(model.isDraw());
+        assertFalse(model.whoIsWinner("O"));
+        assertFalse(model.whoIsWinner("X"));
     }
 
     @Test
