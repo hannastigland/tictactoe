@@ -45,6 +45,7 @@ public class HelloController {
             button.setText(model.getSymbolAt(rowIndex, columnIndex));
         }
     }
+
     public void handlePlayerTurn(MouseEvent mouseEvent) {
         if ("X".equals(model.currentPlayer)&& !gameOver) {
             handlePlayerMove(mouseEvent);

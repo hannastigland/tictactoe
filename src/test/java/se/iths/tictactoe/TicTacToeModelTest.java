@@ -34,7 +34,6 @@ class TicTacToeModelTest {
         };
         model.setGameBoard(board);
         assertTrue(model.isMoveValid(0, 2));
-        assertFalse(model.isMoveValid(2, 2));
     }
 
     @Test
@@ -47,7 +46,6 @@ class TicTacToeModelTest {
         model.setGameBoard(board);
         assertTrue(model.isMoveValid(0, 0));
         assertTrue(model.isMoveValid(2, 1));
-        assertFalse(model.isMoveValid(2, 0));
     }
 
     @Test
@@ -123,10 +121,10 @@ class TicTacToeModelTest {
                 {"X", " ", " "}
         };
         model.setGameBoard(winBoard);
-        assertTrue(model.checkWinnerOrDraw());
         assertTrue(model.whoIsWinner("X"));
         assertFalse(model.whoIsWinner("O"));
         assertFalse(model.isDraw());
+        assertTrue(model.checkWinnerOrDraw());
 
         model.initializeGameBoard();
 

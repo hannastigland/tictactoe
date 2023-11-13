@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="08ffdf95-f279-4439-9e01-8543f3f853ba" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/tictactoe/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/tictactoe/TicTacToeModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +59,7 @@
       <recent name="se.iths.tictactoe" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TicTacToeModelTest.emptyButtonCanBeSelected">
     <configuration name="TicTacToeModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tictactoe" />
       <extension name="coverage">
@@ -140,10 +141,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TicTacToeModelTest.emptyButtonCanBeSelected" />
         <item itemvalue="JUnit.TicTacToeModelTest" />
         <item itemvalue="JUnit.TicTacToeModelTest.gameEndsWithWinnerOrDraw" />
         <item itemvalue="JUnit.TicTacToeModelTest.occupiedButtonCantBeSelected" />
-        <item itemvalue="JUnit.TicTacToeModelTest.emptyButtonCanBeSelected" />
         <item itemvalue="JUnit.TicTacToeModelTest.validMovesForBothPlayers" />
       </list>
     </recent_temporary>
@@ -190,7 +191,7 @@
       <workItem from="1699605427178" duration="5209000" />
       <workItem from="1699610667337" duration="4163000" />
       <workItem from="1699633661147" duration="19166000" />
-      <workItem from="1699803291545" duration="7144000" />
+      <workItem from="1699803291545" duration="9824000" />
     </task>
     <task id="LOCAL−00001" summary="Started with GUI">
       <option name="closed" value="true" />
@@ -297,7 +298,14 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1699818546457</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="updates">
+      <option name="closed" value="true" />
+      <created>1699865797341</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1699865797341</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
